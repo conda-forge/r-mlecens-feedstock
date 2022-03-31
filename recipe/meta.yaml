@@ -1,4 +1,4 @@
-{% set version = '0.1-4' %}
+{% set version = "0.1-5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/MLEcens_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/MLEcens/MLEcens_{{ version }}.tar.gz
-  sha256: 8524214cdfa800602f7e5a42f255d58ce15321d184832df463fa7a9525cb957e
+  sha256: 0605393308e4b915e0ca9da2e7fc72b91745ca987046889e26ba51468807b431
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -47,14 +47,8 @@ test:
 about:
   home: http://stat.ethz.ch/~maathuis/
   license: GPL-2.0-or-later
-  summary: This package contains functions to compute the nonparametric maximum likelihood estimator
-    (MLE) for the bivariate distribution of (X,Y), when realizations of (X,Y) cannot
-    be observed directly.  To be more precise, we consider the situation where we observe
-    a set of rectangles that are known to contain the unobservable realizations of (X,Y).
-    We compute the MLE based on such a set of rectangles.  The methods can also be used
-    for univariate censored data (see data set 'cosmesis'), and for censored data with
-    competing risks (see data set 'menopause').  We also provide functions to visualize
-    the observed data and the MLE.
+  summary: This package contains functions to compute the nonparametric maximum likelihood estimator (MLE) for the bivariate distribution of (X,Y), when realizations of (X,Y) cannot be observed directly.  To be more precise, we consider the situation where we observe a set of rectangles that are known to contain the unobservable
+    realizations of (X,Y). We compute the MLE based on such a set of rectangles.  The methods can also be used for univariate censored data (see data set 'cosmesis'), and for censored data with competing risks (see data set 'menopause').  We also provide functions to visualize the observed data and the MLE.
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
