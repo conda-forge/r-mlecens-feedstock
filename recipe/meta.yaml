@@ -1,4 +1,4 @@
-{% set version = "0.1-5" %}
+{% set version = "0.1-7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/MLEcens_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/MLEcens/MLEcens_{{ version }}.tar.gz
-  sha256: 0605393308e4b915e0ca9da2e7fc72b91745ca987046889e26ba51468807b431
+  sha256: 9b06e5d875220784d84c6643f9709e1e067350282db8e13365ae584763a9b6cd
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
