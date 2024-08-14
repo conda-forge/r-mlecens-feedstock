@@ -1,6 +1,5 @@
 {% set version = "0.1-7" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-mlecens
@@ -13,8 +12,7 @@ source:
   sha256: 9b06e5d875220784d84c6643f9709e1e067350282db8e13365ae584763a9b6cd
 
 build:
-  merge_build_host: true  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +20,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -35,7 +35,6 @@ requirements:
     - liblapack
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - libblas
     - liblapack
 
